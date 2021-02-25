@@ -43,7 +43,7 @@ namespace CircularReference.Api.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Hardwarename")
+                    b.Property<string>("HardwareName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("HardwareId");

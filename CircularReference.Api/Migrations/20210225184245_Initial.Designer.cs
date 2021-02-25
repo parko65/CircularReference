@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CircularReference.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210225100352_Initial")]
+    [Migration("20210225184245_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,7 +45,7 @@ namespace CircularReference.Api.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Hardwarename")
+                    b.Property<string>("HardwareName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("HardwareId");

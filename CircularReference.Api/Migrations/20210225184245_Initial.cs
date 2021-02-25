@@ -26,7 +26,7 @@ namespace CircularReference.Api.Migrations
                     HardwareId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
-                    Hardwarename = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    HardwareName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
