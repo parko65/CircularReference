@@ -1,11 +1,8 @@
 ﻿using CircularReference.Api.DTOS;
 using CircularReference.Api.Repositories;
-using CircularReference.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CircularReference.Api.Controllers
 {
