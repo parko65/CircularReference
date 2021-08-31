@@ -1,11 +1,12 @@
 ﻿using CircularReference.Shared.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CircularReference.Api.Repositories
 {
     public interface ICustomerRepository
     {
-        IQueryable<Customer> GetAllCustomers();
-        IQueryable<Customer> GetAllCustomers(int id);
+        IEnumerable<Customer> GetAllCustomers();
+        IEnumerable<Customer> GetAllCustomers(int id);
     }
 }
