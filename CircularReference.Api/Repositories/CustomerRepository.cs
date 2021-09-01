@@ -3,6 +3,7 @@ using CircularReference.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CircularReference.Api.Repositories
 {
@@ -15,18 +16,20 @@ namespace CircularReference.Api.Repositories
             _appDbContext = appDbContext;
         }
 
-        public IEnumerable<Customer> GetAllCustomers()
+        public async Task<IEnumerable<Customer>> GetAllCustomers()
         {
-            return _appDbContext.Customers
+            return await _appDbContext.Customers
                 .Include(c => c.Hardwares)
-                .Include(c => c.Softwares);
+                .Include(c => c.Softwares)
+                .ToListAsync();            
         }
 
-        public IEnumerable<Customer> GetAllCustomers(int id)
+        public async Task<IEnumerable<Customer>> GetAllCustomers(int id)
         {
-            return _appDbContext.Customers.Where(c => c.Id == id)
+            return await _appDbContext.Customers.Where(c => c.Id == id)
                 .Include(c => c.Hardwares)
-                .Include(c => c.Softwares);
+                .Include(c => c.Softwares)
+                .ToListAsync();
         }
     }
 }

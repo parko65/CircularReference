@@ -3,6 +3,7 @@ using CircularReference.Api.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CircularReference.Api.Controllers
 {
@@ -20,15 +21,17 @@ namespace CircularReference.Api.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<CustomerDto> Get()
+        public async Task<IEnumerable<CustomerDto>> Get()
         {
-            return _customerRepository.GetAllCustomers().ToList().Select(c => _dtoFactory.Create(c));
+            //var result = await _customerRepository.GetAllCustomers();
+            //return result.Select(c => _dtoFactory.Create(c));
+            return (await _customerRepository.GetAllCustomers()).Select(c => _dtoFactory.Create(c));
         }
 
         [HttpGet("{id:int}")]
-        public IEnumerable<CustomerDto> GetById(int id)
+        public async Task<IEnumerable<CustomerDto>> GetById(int id)
         {
-            return _customerRepository.GetAllCustomers(id).ToList().Select(c => _dtoFactory.Create(c));
+            return (await _customerRepository.GetAllCustomers(id)).Select(c => _dtoFactory.Create(c));
         }
     }
 }
